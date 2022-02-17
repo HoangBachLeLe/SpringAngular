@@ -17,7 +17,7 @@ Then open the web page http://localhost:4200 in a browser.
 
 ## Adminer
 
-The docker compose setup includes Adminer for adminstrating the data base. Once the data base is started open http://localhost:8080 in a browser and log into the data base:
+The docker compose setup includes Adminer for adminstrating the data base. Once the data base is started open http://localhost:8081 in a browser and log into the data base:
 
 | Setting          | Value        |
 |------------------|--------------|
