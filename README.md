@@ -1,7 +1,28 @@
-| Einstellung      | Wert         |
+# Course Management
+
+This is a simple CRUD application with a 3-tier architecture:
+- Frondend: Angular
+- Backend: Spring Boot
+- Database: MySQL
+
+## How to run the application?
+
+In order to run the application you need to have Docker and docker-compose installed on your machine. Execute the following command to start the whole application:
+
+```sh
+docker-compose up
+```
+
+Then open the web page http://localhost:4200 in a browser.
+
+## Adminer
+
+The docker compose setup includes Adminer for adminstrating the data base. Once the data base is started open http://localhost:8080 in a browser and log into the data base:
+
+| Setting          | Value        |
 |------------------|--------------|
-| Datenbank System | MySQL        |
+| Data base system | MySQL        |
 | Server           | db           |
-| Benutzer         | root         |
-| Passwort         | springCRUD   |
-| Datenbank        | coursedb     |
+| User             | root         |
+| Password         | springCRUD   |
+| Data base        | coursedb     |
