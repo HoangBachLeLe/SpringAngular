@@ -13,11 +13,11 @@ public class CourseService {
 
     private final CourseRepository repository;
 
-    public Course saveCourse(Course course) {
+    public Course saveCourse(final Course course) {
         return repository.save(course);
     }
 
-    public Course updateCourse(Course course) {
+    public Course updateCourse(final Course course) {
         return repository.save(course);
     }
 
@@ -25,11 +25,12 @@ public class CourseService {
         return repository.findAll();
     }
 
-    public Course findCourseById(long courseId) {
-        return repository.findById(courseId).orElseThrow(() -> new CourseNotFoundException("Course by id " + courseId + " was not found"));
+    public Course findCourseById(final long courseId) {
+        return repository.findById(courseId). //NOPMD
+                orElseThrow(() -> new CourseNotFoundException("Course by id " + courseId + " was not found"));
     }
 
-    public void deleteCourse(long courseId) {
+    public void deleteCourse(final long courseId) {
         repository.deleteById(courseId);
     }
 

@@ -2,6 +2,7 @@ package de.bach.springcrud.controller;
 
 import de.bach.springcrud.model.Course;
 import de.bach.springcrud.service.CourseService;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,16 +19,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class CourseController {
 
+    @SuppressFBWarnings("EI_EXPOSE_REP2")
     private final CourseService service;
 
     @PostMapping("/postcourse")
-    public List<Course> saveCourse(@RequestBody Course course) {
+    public List<Course> saveCourse(final @RequestBody Course course) {
         service.saveCourse(course);
         return service.findAllCourses();
     }
 
     @PutMapping("/updatecourse")
-    public List<Course> updateCourse(@RequestBody Course course) {
+    public List<Course> updateCourse(final @RequestBody Course course) {
         service.updateCourse(course);
         return service.findAllCourses();
     }
@@ -38,12 +40,12 @@ public class CourseController {
     }
 
     @GetMapping("/getcoursebyid")
-    public Course getCourseById(@RequestParam long courseId) {
+    public Course getCourseById(final @RequestParam long courseId) {
         return service.findCourseById(courseId);
     }
 
     @DeleteMapping("/deletecourse")
-    public List<Course> deleteCourse(@RequestParam long courseId) {
+    public List<Course> deleteCourse(final @RequestParam long courseId) {
         service.deleteCourse(courseId);
         return service.findAllCourses();
     }
