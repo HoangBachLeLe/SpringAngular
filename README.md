@@ -5,6 +5,10 @@ This is a simple CRUD application with a 3-tier architecture:
 - Backend: Spring Boot
 - Database: MySQL
 
+## Preview
+
+![preview](./preview.png)
+
 ## How to run the application?
 
 In order to run the application you need to have Docker and docker-compose installed on your machine. Execute the following command to start the whole application:
