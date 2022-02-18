@@ -1,7 +1,7 @@
 # Course Management
 
 This is a simple CRUD application with a 3-tier architecture:
-- Frondend: Angular
+- Frontend: Angular
 - Backend: Spring Boot
 - Database: MySQL
 
