@@ -5,6 +5,10 @@ on: [ push, pull_request ]
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ '12', '14', '16' ]
+    name: Node ${{ matrix.node }} sample
     
     steps:
       - uses: actions/checkout@v2
@@ -29,7 +33,7 @@ jobs:
         run: ./SpringCRUD/gradlew -p ./SpringCRUD test
         
       - name: Publish Unit Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v1.28
+        uses: EnricoMi/publish-unit-test-result-action@v1.30
         if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -44,3 +48,10 @@ jobs:
         
       - name: Build with Gradle
         run: ./SpringCRUD/gradlew -p ./SpringCRUD build
+        
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm install --prefix ./AngularCRUD/
+      - run: npm run build --prefix ./AngularCRUD/
